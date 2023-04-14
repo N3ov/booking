@@ -9,21 +9,23 @@ import org.springframework.stereotype.Service
 class UserServiceImpl(val userRepository: UserRepository) : UserService {
     override fun addUser(userDto: UserDto) = userRepository.save(userDto.trans2Entity()).trans2Dto();
 
-    override fun findUserById(id: Long): UserDto = userRepository.findById(id).map {
-        it.trans2Dto();
-    }.orElseThrow {
-        RuntimeException();
-    };
+    override fun findUserById(id: Long): UserDto {
+        val user = userRepository.findById(id).orElseThrow {
+            NoSuchElementException("User with id $id not found")
+        }
+        return user.trans2Dto()
+    }
 
     override fun modifyUser(userDto: UserDto) = userRepository.findById(userDto.id).orElseThrow {
         RuntimeException()
     }.apply {
-        this.name = userDto.userName;
-        this.age = userDto.age;
+        this.name = userDto.userName
+        this.email = userDto.email
+        this.password = userDto.password
         userRepository.save(this)
     }.run {
-        this.trans2Dto();
-    };
+        this.trans2Dto()
+    }
 
     override fun removeUserById(id: Long) = userRepository.deleteById(id);
 }

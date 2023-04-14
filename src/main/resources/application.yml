@@ -6,14 +6,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-
+    show-sql: true
 
 springdoc:
   version: '@springdoc.version@'
@@ -21,7 +16,7 @@ springdoc:
     enabled: true
     path: /v3/api-docs
   swagger-ui:
-    path: /swagger-ui
+    path: /swagger
     tagsSorter: alpha
     use-root-path: true
   cache:

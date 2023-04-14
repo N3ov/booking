@@ -4,19 +4,22 @@ import com.tangji.booking.data.dto.UserDto
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 data class UserEntity (
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    val id: Long?,
+    val userId: Long?,
 
     @Column
     var name: String,
 
     @Column
-    var age: Int
+    var email: String,
+
+    @Column
+    var password: String
 
 ) {
-    fun trans2Dto(): UserDto = UserDto(this.id!!, this.name, this.age);
+    fun trans2Dto(): UserDto = UserDto(this.userId!!, this.name, this.email, this.password);
 }

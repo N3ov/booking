@@ -5,7 +5,8 @@ import com.tangji.booking.data.entity.UserEntity
 data class UserDto(
     val id: Long,
     var userName: String,
-    var age: Int
+    var email: String,
+    var password: String
 ) {
-    fun trans2Entity() = UserEntity(this.id, this.userName, this.age)
+    fun trans2Entity() = UserEntity(this.id, this.userName, this.email, this.password)
 }

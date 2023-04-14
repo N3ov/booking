@@ -9,10 +9,6 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class SwaggerConfig {
 
-    companion object {
-        const val SWAGGER_SCAN_BASE_PACKAGE = "com.tangji";
-    }
-
     @Bean
     fun api(): OpenAPI {
         return OpenAPI()
