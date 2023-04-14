@@ -13,3 +13,16 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+
+
+springdoc:
+  version: '@springdoc.version@'
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+    tagsSorter: alpha
+    use-root-path: true
+  cache:
+    disabled: true

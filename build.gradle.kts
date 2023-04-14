@@ -8,9 +8,10 @@ plugins {
     kotlin("plugin.jpa") version "1.5.10"
 }
 
-group = "com.example"
+group = "com.tangji"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
+
 
 configurations {
     compileOnly {
@@ -28,16 +29,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.springfox:springfox-swagger-ui:3.0.0")
-    implementation("io.springfox:springfox-swagger2:3.0.0")
-    implementation("org.springdoc:springdoc-openapi-ui:1.5.0")
-    implementation("org.springdoc:springdoc-openapi-data-rest:1.5.0")
-    implementation("org.springdoc:springdoc-openapi-kotlin:1.5.0")
+
+    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    compileOnly("org.projectlombok:lombok")
+
     runtimeOnly("org.postgresql:postgresql")
-    annotationProcessor("org.projectlombok:lombok")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
